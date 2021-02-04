@@ -1,0 +1,120 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.Account.Localization
+@using Volo.Abp.Account.Settings
+@using Volo.Abp.Settings
+@*@model Volo.Abp.Account.Web.Pages.Account.LoginModel*@
+@model Kuanfang.Ims.Pages.Account.MyLoginModel
+@inject IHtmlLocalizer<AccountResource> L
+@inject Volo.Abp.Settings.ISettingProvider SettingProvider
+<div>
+    <img src="https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg" style="position:fixed;width:100%;height:100%;left:0px;" />
+    <div class="d-flex justify-content-center" style="position:absolute;left:50%;top:50%;width:1000px;height:550px;box-shadow:3px 3px 40px #ccc;margin-left:-500px;margin-top:-285px;">
+        <div style="width:50%;background:linear-gradient(0deg, #3a485a 0%, #607089 100%)">
+            <img style="position:absolute" src="~/img/left-1-e6bd44245f3950a6f5787218eeeed90b.png" />
+            <div class="pt-5 px-5">
+                <img style="height:50px;vertical-align:top;margin-right:16px;" src="~/img/logo-kuanfang-rect-red.svg" /><span style="font-size:35px;color:#fff;font-weight:bold;">宽方系统</span>
+            </div>
+            <div class="pt-2 px-5">
+                <p class="text-white">建立房地产大数据运营管理与分析平台</p>
+            </div>
+            <div class="pt-3 px-5">
+                <p class="text-white small">宽方通过业内独创的核心逻辑引擎，支持项目逻辑可视化，将集团内横向和纵向数据链全部打通，助力企业运营数字化转型。涵盖：</p>
+            </div>
+            <div class="pt-3 px-5 ml-5">
+                <p class="text-white small my-0"><i class="fas fa-address-book text-danger"></i>&nbsp;&nbsp;投前管理决策</p>
+                <p class="text-white small my-0"><i class="fas fa-address-book text-danger"></i>&nbsp;&nbsp;投后投模管理</p>
+                <p class="text-white small my-0"><i class="fas fa-address-book text-danger"></i>&nbsp;&nbsp;全面预算管理</p>
+                <p class="text-white small my-0"><i class="fas fa-address-book text-danger"></i>&nbsp;&nbsp;B&nbsp;&nbsp;I&nbsp;&nbsp;决策分析</p>
+                <p class="text-white small my-0"><i class="fas fa-address-book text-danger"></i>&nbsp;&nbsp;财报税务分析</p>
+            </div>
+            <div class="m-5">
+                <p class="text-white small">
+                    <span>更多帮助信息 请登录官网查询 <a href="http://www.kuanfang.cn/" title="官网网址" target="_blank">WWW.KUANFANG.CN</a></span>
+                </p>
+            </div>
+            <img style="position:absolute;right:50%;bottom:0;" src="~/img/left-2-4f76bf713bc13c53d0973eda61dd1b55.png" />
+        </div>
+
+
+
+        <div style="width:50%">
+            <div class="pt-5 d-flex justify-content-center">
+                <div style="width:60%;">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">OA登录</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">用户登录</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent" style="width:100%;">
+                        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                           
+                        </div>
+                        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <form method="post" class="mt-4">
+                                <input asp-for="ReturnUrl" />
+                                <input asp-for="ReturnUrlHash" />
+                                @*<div class="form-group">
+                                    <input asp-for="LoginInput.UserNameOrEmailAddress" class="form-control" placeholder="请输入用户名或邮箱" />
+                                    <span asp-validation-for="LoginInput.UserNameOrEmailAddress" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input asp-for="LoginInput.Password" class="form-control" placeholder="密码" />
+                                    <span asp-validation-for="LoginInput.Password" class="text-danger"></span>
+                                </div>*@
+                                <div class="form-group">
+                                    <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text text-info"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                    </div>
+                                        <input asp-for="LoginInput.UserNameOrEmailAddress" class="form-control" placeholder="请输入用户名或邮箱" />
+                                    </div>
+                                    <span asp-validation-for="LoginInput.UserNameOrEmailAddress" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-info"><i class="fa fa-key"></i></span>
+                                        </div>
+                                        <input asp-for="LoginInput.Password" class="form-control" placeholder="密码" />
+                                    </div>
+                                    <span asp-validation-for="LoginInput.Password" class="text-danger"></span>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="input-group col-8">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text text-info"><i class="fa fa-image"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="验证码" />
+                                    </div>
+                                    <div class="col-4 border">
+                                        <img onclick="alert(666);" src="" />
+                                    </div>
+                                </div>
+
+
+                                <abp-row>
+                                    <abp-column>
+                                        <abp-input asp-for="LoginInput.RememberMe" class="mb-4" />
+                                    </abp-column>
+                                    <abp-column class="text-right">
+                                        <a href="@Url.Page("./ForgotPassword", new {returnUrl = Model.ReturnUrl, returnUrlHash = Model.ReturnUrlHash})">@L["ForgotPassword"]</a>
+                                    </abp-column>
+                                </abp-row>
+                                <abp-button type="submit" button-type="Primary" name="Action" value="Login" class="btn-block btn-md mt-3">@L["Login"]</abp-button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+

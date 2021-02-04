@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://192.168.31.160:44395",
+      "applicationUrl": "https://localhost:44395",
       "sslPort": 44395
     }
   },
@@ -18,7 +18,7 @@
     "Kuanfang.Ims.HttpApi.Host": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://192.168.31.160:44395",
+      "applicationUrl": "https://localhost:44395",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

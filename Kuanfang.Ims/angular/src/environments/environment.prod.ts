@@ -10,16 +10,17 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'http://s239r19764.wicp.vip:23180',
+    issuer: 'https://localhost:44395',
+    /* issuer: 'https://23v9c19764.oicp.vip', */
     redirectUri: baseUrl,
     clientId: 'Ims_App',
     responseType: 'code',
     scope: 'offline_access Ims',
-    requireHttps:false,
   },
   apis: {
     default: {
-      url: 'http://s239r19764.wicp.vip:23180',
+      url: 'https://localhost:44395',
+      /* url: 'https://23v9c19764.oicp.vip', */
       rootNamespace: 'Kuanfang.Ims',
     },
   },

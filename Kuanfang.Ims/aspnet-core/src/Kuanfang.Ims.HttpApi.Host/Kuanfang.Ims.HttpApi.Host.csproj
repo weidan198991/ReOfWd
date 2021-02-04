@@ -36,4 +36,8 @@
     <None Remove="Logs\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\img\logo-kuanfang-rect-red.svg" />
+  </ItemGroup>
+
 </Project>
